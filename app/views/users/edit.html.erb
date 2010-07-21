@@ -1,0 +1,19 @@
+<title>Edit User</title>
+<h1>Edit <%= @user.name %></h1>
+
+<p><small><%= link_to 'Main', users_path %></small></p>
+
+<% form_for @user do |f| %>
+  <table>
+    <tr><td><%= f.error_messages %></td></tr>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.text_field :email %></td>
+    </tr><td></td><td><%= f.submit 'Submit' %></td></tr>
+  </table>
+<% end %>
+

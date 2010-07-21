@@ -1,0 +1,7 @@
+config/database.yml
+.DS_Store
+log/*.log
+tmp/**/*
+db/*.sqlite3
+*.orig
+.rake_tasks~

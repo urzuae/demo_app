@@ -1,0 +1,11 @@
+<title>Listing Users</title>
+<h1>Listing Users</h1>
+<p><small><%= link_to 'New', new_user_path %> | <%= link_to 'Microposts', microposts_path %></small></p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  <%= render @users %>
+</table>
+

@@ -1,0 +1,11 @@
+<title>Listing Microposts</title>
+<h1>Listing Microposts</h1>
+<p><small><%= link_to 'New', new_micropost_path %> | <%= link_to 'Users', users_path %></small></p>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Content</th>
+  </tr>
+  <%= render @microposts %>
+</table>
+

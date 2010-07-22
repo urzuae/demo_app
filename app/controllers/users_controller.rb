@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
   def show
-    @user = User.find(params[:id])
   end
   def new
     @user = User.new
@@ -17,7 +18,6 @@ class UsersController < ApplicationController
     end
   end
   def edit
-    @user = User.find(params[:id])
   end
   def update
     if @user.update_attributes(params[:user])
@@ -27,8 +27,13 @@ class UsersController < ApplicationController
     end
   end
   def destroy
-    @user.find(params[:id])
     @user.destroy
     redirect_to users_path
+  end
+  
+  private
+  
+  def find_user
+    @user = User.find(params[:id])
   end
 end

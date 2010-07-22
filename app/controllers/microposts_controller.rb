@@ -1,9 +1,10 @@
 class MicropostsController < ApplicationController
+  before_filter :find_micropost, :only => [:show, :edit, :update, :destroy]
+  
   def index
     @microposts = Micropost.all
   end
   def show
-    @micropost = Micropost.find(params[:id])
   end
   def new
     @micropost = Micropost.new
@@ -18,7 +19,6 @@ class MicropostsController < ApplicationController
     end
   end
   def edit
-    @micropost = Micropost.find(params[:id])
     @users = User.all
   end
   def update
@@ -29,8 +29,14 @@ class MicropostsController < ApplicationController
     end
   end
   def destroy
-    @micropost = Micropost.find(params[:id])
     @micropost.destroy
     redirect_to microposts_path
   end
+  
+  private
+  
+  def find_micropost
+    @micropost = Micropost.find(params[:id])
+  end
+  
 end

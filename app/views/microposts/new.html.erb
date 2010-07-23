@@ -7,7 +7,7 @@
     <tr><%= f.error_messages %></tr>
     <tr>
       <td><%= f.label :user_id %></td>
-      <td><%= f.collection_select(:user_id, @users, :id, :name, :prompt => true) %></td>
+      <td><%= f.collection_select :user_id, @users, :id, :name, :prompt => true %></td>
     </tr>
     <tr>
       <td><%= f.label :tag_list %></td>

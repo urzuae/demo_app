@@ -6310,3 +6310,71 @@ Migrating to ActsAsTaggableOnMigration (20100722171442)
   [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
   [4;35;1mSQL (3.8ms)[0m   [0mdescribe `users`[0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (141.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (116.8ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100721184515)
+  [4;35;1mSQL (121.2ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100721184515')[0m
+Migrating to CreateMicroposts (20100721205247)
+  [4;35;1mSQL (99.4ms)[0m   [0mCREATE TABLE `microposts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100721205247')[0m
+Migrating to ActsAsTaggableOnMigration (20100722171442)
+  [4;35;1mSQL (185.9ms)[0m   [0mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (96.9ms)[0m   [0;1mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11), `taggable_id` int(11), `tagger_id` int(11), `tagger_type` varchar(255), `taggable_type` varchar(255), `context` varchar(255), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (110.1ms)[0m   [0mCREATE INDEX `index_taggings_on_tag_id` ON `taggings` (`tag_id`)[0m
+  [4;36;1mSQL (103.6ms)[0m   [0;1mCREATE INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context` ON `taggings` (`taggable_id`, `taggable_type`, `context`)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100722171442')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `microposts`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `microposts`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `microposts`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `taggings`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mdescribe `taggings`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW KEYS FROM `taggings`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (181.6ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (237.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100721184515)
+  [4;35;1mSQL (84.5ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100721184515')[0m
+Migrating to CreateMicroposts (20100721205247)
+  [4;35;1mSQL (129.0ms)[0m   [0mCREATE TABLE `microposts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100721205247')[0m
+Migrating to ActsAsTaggableOnMigration (20100722171442)
+  [4;35;1mSQL (85.3ms)[0m   [0mCREATE TABLE `tags` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (87.2ms)[0m   [0;1mCREATE TABLE `taggings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `tag_id` int(11), `taggable_id` int(11), `tagger_id` int(11), `tagger_type` varchar(255), `taggable_type` varchar(255), `context` varchar(255), `created_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (102.3ms)[0m   [0mCREATE INDEX `index_taggings_on_tag_id` ON `taggings` (`tag_id`)[0m
+  [4;36;1mSQL (93.7ms)[0m   [0;1mCREATE INDEX `index_taggings_on_taggable_id_and_taggable_type_and_context` ON `taggings` (`taggable_id`, `taggable_type`, `context`)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100722171442')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (15.2ms)[0m   [0mSHOW FIELDS FROM `microposts`[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mdescribe `microposts`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW KEYS FROM `microposts`[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSHOW FIELDS FROM `taggings`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `taggings`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW KEYS FROM `taggings`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `tags`[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mSHOW KEYS FROM `tags`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (4.7ms)[0m   [0;1mSHOW KEYS FROM `users`[0m

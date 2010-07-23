@@ -1,5 +1,6 @@
 class MicropostsController < ApplicationController
   before_filter :find_micropost, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_users, :only => [:create, :edit, :new, :update]
   
   def index
     @microposts = Micropost.all
@@ -9,7 +10,6 @@ class MicropostsController < ApplicationController
   end
   def new
     @micropost = Micropost.new
-    @users = User.all
     if @users.empty?
       flash[:notice] = 'Create a user first'
       redirect_to new_user_path
@@ -20,16 +20,17 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to @micropost
     else
+      flash[:error] = 'Micropost could not be created'
       render 'new'
     end
   end
   def edit
-    @users = User.all
   end
   def update
     if @micropost.update_attributes(params[:micropost])
       redirect_to @micropost
     else
+      flash[:error] = 'Micropost could not be updated'
       render 'edit'
     end
   end
@@ -48,5 +49,8 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
   end
   
+  def find_users
+    @users = User.all
+  end
 
 end

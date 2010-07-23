@@ -12,6 +12,7 @@ class MicropostsController < ApplicationController
     @users = User.all
     if @users.empty?
       flash[:notice] = 'Create a user first'
+      redirect_to new_user_path
     end
   end
   def create

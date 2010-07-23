@@ -10,6 +10,9 @@ class MicropostsController < ApplicationController
   def new
     @micropost = Micropost.new
     @users = User.all
+    if @users.empty?
+      flash[:notice] = 'Create a user first'
+    end
   end
   def create
     @micropost = Micropost.new(params[:micropost])

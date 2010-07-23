@@ -1,17 +1,21 @@
 <title>Edit Micropost</title>
 <h1>Edit Micropost</h1>
-<p><small><%= link_to 'Main', microposts_path %></small></p>
+<p><small><%= link_to 'Main', microposts_path %> | <%= link_to 'Back', micropost_path(@micropost) %></small></p>
 
 <% form_for @micropost do |f| %>
   <table>
     <tr><%= f.error_messages %></tr>
     <tr>
-      <td><%= f.label :content %></td>
-      <td><%= f.text_field :content %></td>
-    </tr>
-    <tr>
       <td><%= f.label :user_id %></td>
       <td><%= f.collection_select :user_id, @users, :id, :name, :prompt => true %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :tag_list %></td>
+      <td><%= f.text_field :tag_list %> <small>(Separated by commas)</small></td>
+    </tr>
+    <tr>
+      <td><%= f.label :content %></td>
+      <td><%= f.text_area :content, :rows => 5, :cols => 50 %></td>
     </tr>
     <tr><td></td><td><%= f.submit 'Create Micropost' %></td></tr>
   </table>

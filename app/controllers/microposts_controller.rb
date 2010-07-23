@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
   
   def index
     @microposts = Micropost.all
+    @tags = Micropost.tag_counts_on(:tags)
   end
   def show
   end
@@ -33,10 +34,15 @@ class MicropostsController < ApplicationController
     redirect_to microposts_path
   end
   
+  def tag
+    @microposts = Micropost.tagged_with(params[:id])
+  end
+  
   private
   
   def find_micropost
     @micropost = Micropost.find(params[:id])
   end
   
+
 end

@@ -1,4 +1,5 @@
 <h1>Micropost</h1>
-<p><small><%= link_to 'Edit', edit_micropost_path(@micropost) %> | <%= link_to 'Delete', @micropost, :confirm => 'Are you sure?', :method => :delete %></small></p>
+<p><small><%= link_to 'Edit', edit_micropost_path(@micropost) %> | <%= link_to 'Delete', @micropost, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Main', microposts_path %></small></p>
 
-Content: <%= @micropost.content %>
+<p>Tags: <%= @micropost.tag_list %></p>
+<p>Content: <%= @micropost.content %></p>

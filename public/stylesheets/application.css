@@ -83,10 +83,12 @@ a {
 
 .fieldWithErrors textarea {
   background-color: #FFFFCF;
+  border: solid 1px red;
 }
 
 .fieldWithErrors input {
   background-color: #FFFFCF;
+  border: solid 1px red;
 }
 
 select {

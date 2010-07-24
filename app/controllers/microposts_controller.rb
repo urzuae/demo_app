@@ -10,7 +10,6 @@ class MicropostsController < ApplicationController
   def new
     @micropost = Micropost.new
     if @users.empty?
-      flash[:notice] = 'Create a user first'
       redirect_to new_user_path
     end
   end
@@ -19,7 +18,6 @@ class MicropostsController < ApplicationController
     if @micropost.save
       redirect_to @micropost
     else
-      flash[:error] = 'Micropost could not be created'
       render 'new'
     end
   end
@@ -29,7 +27,6 @@ class MicropostsController < ApplicationController
     if @micropost.update_attributes(params[:micropost])
       redirect_to @micropost
     else
-      flash[:error] = 'Micropost could not be updated'
       render 'edit'
     end
   end

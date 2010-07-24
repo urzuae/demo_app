@@ -55,11 +55,10 @@ a {
 }
 
 
-#main_menu_column {
+#main_menu {
   display: left;
   padding: 5px;
   width: 25%;
-  border: solid 1px black;
 }
 
 .css1 {

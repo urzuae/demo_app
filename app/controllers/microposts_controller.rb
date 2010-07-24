@@ -4,7 +4,6 @@ class MicropostsController < ApplicationController
   
   def index
     @microposts = Micropost.all
-    @tags = Micropost.tag_counts_on(:tags)
   end
   def show
   end

@@ -19,4 +19,8 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+  
+  def tag_cloud_render
+    @tags = Micropost.tag_counts_on(:tags)
+  end
 end

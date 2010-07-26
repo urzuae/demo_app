@@ -8,15 +8,7 @@ a img {
   border: none;
 }
 
-a {
-  color: #0000FF;
-}
-
-.clear {
-  clear: both;
-  height: 0;
-  overflow: hidden;
-}
+a { color: #0000FF; }
 
 #container {
   width: 75%;
@@ -28,16 +20,33 @@ a {
   overflow: hidden;
 }
 
-#cloud {
+#first_column {
   width: 15%;
   margin: 0 auto;
-  background-color: #FFF;
+  margin-top: 40px;
+  padding: 1px;
+  float: left;
   border: solid 1px black;
-  margin-top: 20px;
-  padding: 20px 40px;
-  float: right;
 }
 
+#first_column #main_menu {
+  width: 100%;
+  float: left;
+  padding: 5px;
+}
+
+#first_column #cloud {
+  float: left;
+  width: 100%;
+  padding: 5px;
+  overflow: hidden;
+}
+
+#main_column {
+  width: 80%;
+  margin: 0 auto;
+  float: right;
+}
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
@@ -54,31 +63,24 @@ a {
   border: solid 1px #C66;
 }
 
-
-#main_menu {
-  display: left;
-  padding: 5px;
-  width: 25%;
+#users {
+  height: auto;
+  display: inline;
+  float: left;
 }
 
-.css1 {
-  font-size: 1.0em;
-
-}
-.css2 {
-  font-size: 1.2em;
-
-}
-.css3 {
-  font-size: 1.4em;
-}
-.css4 {
-  font-size: 1.6em;
+#microposts {
+  height: auto;
+  display: inline;
+  float: left;
 }
 
-.formError {
-  color: red;
-}
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
+
+.formError { color: red; }
 
 .fieldWithErrors textarea {
   background-color: #FFFFCF;
@@ -92,4 +94,9 @@ a {
 
 select {
   float: left;
+}
+
+a.menu_element {
+  display: none;
+  overflow: hidden;
 }

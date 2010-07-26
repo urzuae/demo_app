@@ -9,25 +9,31 @@
   </head>
   <body>
     <div id="container">
-      <div id="cloud">
-        <% tag_cloud (tag_cloud_render, %w[css1 css2 css3 css4]) do |tag, css_class| %>
-          <%= link_to tag.name,  { :action => :tag, :id => tag.name }, :class => css_class %>
-        <% end %>
+      <div id="first_column">
+        <div id="main_menu">
+            <div id="users">
+              <a class="menu_header" href="/users">Users</a>
+              <div> <a class="menu_element users" href="/users">-Index</a></div>
+              <div> <a class="menu_element users" href='/users/new'>-New User</a></div>
+            </div><br/>
+            <div id="microposts">
+              <a class="menu_header" href="/microposts">Microposts</a>
+              <div><a class="menu_element microposts" href="/microposts">-Index</a></div>
+              <div><a class="menu_element microposts" href="/microposts/new">-New Micropost</a></div>
+            </div>
+        </div>
+        <div id="cloud">
+          <% tag_cloud (tag_cloud_render, %w[css1 css2 css3 css4]) do |tag, css_class| %>
+            <%= link_to tag.name,  { :action => :tag, :id => tag.name }, :class => css_class %>
+          <% end %>
+        </div>
       </div>
-      <div id="main_menu">
-        <%= link_to "Users", users_path %> |
-        <%= link_to "Microposts", microposts_path %>
-      </div>
-      <%- flash.each do |name, msg| -%>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <%- end -%>
-    
-    
       <%- if show_title? -%>
         <h1><%=h yield(:title) %></h1>
       <%- end -%>
-    
-      <%= yield %>
+      <div id="main_column">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

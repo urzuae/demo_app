@@ -48,24 +48,9 @@ a { color: #0000FF; }
   float: right;
 }
 
-#flash_notice, #flash_error {
-  padding: 5px 8px;
-  margin: 10px 0;
-}
-
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
-}
-
-#flash_error {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-
 #users {
   height: auto;
-  display: inline;
+  display: inline-block;
   float: left;
 }
 
@@ -96,7 +81,14 @@ select {
   float: left;
 }
 
-a.menu_element {
-  display: none;
-  overflow: hidden;
+#main_menu a {
+  text-decoration: none;
+}
+
+li a {
+  text-decoration: none;
+}
+
+#main_menu li a:hover {
+  text-decoration: underline;
 }
